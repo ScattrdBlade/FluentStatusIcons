@@ -1,0 +1,86 @@
+/**
+ * @name Discord SVG Status
+ * @version 1.0.0
+ * @description Replaces Discord's status icons with custom SVG images
+ */
+
+ :root {
+  --status-online: url('./svg/1x1/online.svg');
+  --status-idle: url('./svg/1x1/idle.svg');
+  --status-dnd: url('./svg/1x1/dnd.svg');
+  --status-offline: url('./svg/1x1/offline.svg');
+  --status-streaming: url('./svg/1x1/streaming.svg');
+  --status-invisible: var(--status-offline);
+}
+
+/* Target status indicators */
+.wrapper-3t9DeA svg foreignObject[mask*=mobile] + rect,
+.wrapper-3t9DeA svg:not([width="25"]) rect[fill],
+.wrapper-3t9DeA svg[width="25"] rect[width][height],
+.avatar-1BDn8e + svg > rect,
+rect[mask*="svg-mask-status-"],
+.dot-1TzQJe {
+  width: 10px !important;
+  height: 10px !important;
+  mask: none !important;
+  y: 0 !important;
+  x: 0 !important;
+  rx: 50% !important;
+  ry: 50% !important;
+}
+
+/* Apply custom SVG icons */
+.wrapper-3t9DeA svg foreignObject[mask*=mobile] + rect[fill="#23a55a"],
+.wrapper-3t9DeA svg foreignObject[mask*=mobile] + rect[fill="#3ba55c"],
+rect[fill="#23a55a"],
+rect[fill="#3ba55c"],
+rect[mask*="svg-mask-status-online"],
+.dot-1TzQJe[style*="background-color: rgb(35, 165, 90)"] {
+  background: var(--status-online) center/cover no-repeat !important;
+  fill: transparent !important;
+}
+
+rect[fill="#faa61a"],
+rect[mask*="svg-mask-status-idle"],
+.dot-1TzQJe[style*="background-color: rgb(250, 166, 26)"] {
+  background: var(--status-idle) center/cover no-repeat !important;
+  fill: transparent !important;
+}
+
+rect[fill="#f04747"],
+rect[mask*="svg-mask-status-dnd"],
+.dot-1TzQJe[style*="background-color: rgb(240, 71, 71)"] {
+  background: var(--status-dnd) center/cover no-repeat !important;
+  fill: transparent !important;
+}
+
+rect[fill="#593695"],
+rect[mask*="svg-mask-status-streaming"],
+.dot-1TzQJe[style*="background-color: rgb(89, 54, 149)"] {
+  background: var(--status-streaming) center/cover no-repeat !important;
+  fill: transparent !important;
+}
+
+rect[fill="#747f8d"],
+rect[fill="#82858f"],
+rect[mask*="svg-mask-status-offline"],
+rect[mask*="svg-mask-status-invisible"],
+.dot-1TzQJe[style*="background-color: rgb(116, 127, 141)"] {
+  background: var(--status-offline) center/cover no-repeat !important;
+  fill: transparent !important;
+}
+
+/* Adjust sizes for different contexts */
+.memberOffline-2lN7gt img,
+.offline-3nJYBR img {
+  clip-path: none !important;
+}
+
+/* Version display */
+#app-mount .info-1VyQPT:after {
+  content: "Discord SVG Status 1.0.0";
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
