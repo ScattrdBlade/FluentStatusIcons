@@ -1,86 +1,68 @@
 /**
- * @name Discord SVG Status
+ * @name Fluent Status Icons
  * @version 1.0.0
- * @description Replaces Discord's status icons with custom SVG images
+ * @description Replaces the default Discord status icons with fluent status icons.
  */
 
- :root {
-  --status-online: url('./svg/1x1/online.svg');
-  --status-idle: url('./svg/1x1/idle.svg');
-  --status-dnd: url('./svg/1x1/dnd.svg');
-  --status-offline: url('./svg/1x1/offline.svg');
-  --status-streaming: url('./svg/1x1/streaming.svg');
-  --status-invisible: var(--status-offline);
+/* Base styles for status icons */
+.pointerEvents_c51b4e {
+  display: inline-block;
+  background-size: cover;
+  border-radius: 50%;
 }
 
-/* Target status indicators */
-.wrapper-3t9DeA svg foreignObject[mask*=mobile] + rect,
-.wrapper-3t9DeA svg:not([width="25"]) rect[fill],
-.wrapper-3t9DeA svg[width="25"] rect[width][height],
-.avatar-1BDn8e + svg > rect,
-rect[mask*="svg-mask-status-"],
-.dot-1TzQJe {
-  width: 10px !important;
-  height: 10px !important;
-  mask: none !important;
-  y: 0 !important;
-  x: 0 !important;
-  rx: 50% !important;
-  ry: 50% !important;
+/* Specific styles for different positioning values */
+
+/* Elements to be moved up and to the left by 4 units */
+.pointerEvents_c51b4e[width="24"][height="24"][x="88"][y="88"] {
+  width: 25%;  /* Adjust the size as needed */
+  height: 25%;
+  transform: translate(-5px, -5px);  /* Move up and to the left by 4 units */
+  position: absolute;
 }
 
-/* Apply custom SVG icons */
-.wrapper-3t9DeA svg foreignObject[mask*=mobile] + rect[fill="#23a55a"],
-.wrapper-3t9DeA svg foreignObject[mask*=mobile] + rect[fill="#3ba55c"],
-rect[fill="#23a55a"],
-rect[fill="#3ba55c"],
-rect[mask*="svg-mask-status-online"],
-.dot-1TzQJe[style*="background-color: rgb(35, 165, 90)"] {
-  background: var(--status-online) center/cover no-repeat !important;
-  fill: transparent !important;
+/* Elements to remain unchanged */
+.pointerEvents_c51b4e[width="10"][height="10"][x="22"][y="22"] {
+  width: 30%;  /* Adjust the size as needed */
+  height: 30%;
+  transform: translate(-1px, -1px);  /* Move up and to the left by 4 units */
+  position: absolute;
 }
 
-rect[fill="#faa61a"],
-rect[mask*="svg-mask-status-idle"],
-.dot-1TzQJe[style*="background-color: rgb(250, 166, 26)"] {
-  background: var(--status-idle) center/cover no-repeat !important;
-  fill: transparent !important;
+/* Elements with width 16 and height 16 */
+.pointerEvents_c51b4e[width="16"][height="16"][x="60"][y="60"] {
+  width: 20%;  /* Adjust the size as needed */
+  height: 20%;
+  transform: translate(-2px, -2px);  /* Adjust if needed */
+  position: absolute;
 }
 
-rect[fill="#f04747"],
-rect[mask*="svg-mask-status-dnd"],
-.dot-1TzQJe[style*="background-color: rgb(240, 71, 71)"] {
-  background: var(--status-dnd) center/cover no-repeat !important;
-  fill: transparent !important;
+/* Online Status */
+.pointerEvents_c51b4e[fill="#23a55a"] {
+  mask: url('https://raw.githubusercontent.com/ScattrdBlade/FluentIconsTheme/main/svg/1x1/rtxonline.png') no-repeat center / contain !important;
+  fill: #26c75f !important;
 }
 
-rect[fill="#593695"],
-rect[mask*="svg-mask-status-streaming"],
-.dot-1TzQJe[style*="background-color: rgb(89, 54, 149)"] {
-  background: var(--status-streaming) center/cover no-repeat !important;
-  fill: transparent !important;
+/* Idle Status */
+.pointerEvents_c51b4e[fill="#f0b232"] {
+  mask: url('https://raw.githubusercontent.com/ScattrdBlade/FluentIconsTheme/main/svg/1x1/idle.png') no-repeat center / contain !important;
 }
 
-rect[fill="#747f8d"],
-rect[fill="#82858f"],
-rect[mask*="svg-mask-status-offline"],
-rect[mask*="svg-mask-status-invisible"],
-.dot-1TzQJe[style*="background-color: rgb(116, 127, 141)"] {
-  background: var(--status-offline) center/cover no-repeat !important;
-  fill: transparent !important;
+/* Do Not Disturb Status */
+.pointerEvents_c51b4e[fill="#f23f43"] {
+  mask: url('https://raw.githubusercontent.com/ScattrdBlade/FluentIconsTheme/main/svg/1x1/dnd.svg') no-repeat center / contain !important;
+  fill: #bf2a2a !important;
 }
 
-/* Adjust sizes for different contexts */
-.memberOffline-2lN7gt img,
-.offline-3nJYBR img {
-  clip-path: none !important;
+/* Offline Status */
+.pointerEvents_c51b4e[fill="#80848e"] {
+  mask: url('https://raw.githubusercontent.com/ScattrdBlade/FluentIconsTheme/main/svg/1x1/offline.svg') no-repeat center / contain !important;
 }
 
-/* Version display */
-#app-mount .info-1VyQPT:after {
-  content: "Discord SVG Status 1.0.0";
-  display: block;
-  margin-top: 10px;
-  font-size: 12px;
-  color: var(--text-muted);
+.pointerEvents_c51b4e[mask="url(#svg-mask-status-online-mobile)"] {
+  mask: url('https://raw.githubusercontent.com/ScattrdBlade/FluentIconsTheme/main/svg/1x1/phone.png') no-repeat center / contain !important;
+  width: 35%;  /* Adjust the size as needed */
+  height: 35%;
+  transform: translate(-3px, -1px);  /* Move up and to the left by 4 units */
+  position: absolute;
 }
